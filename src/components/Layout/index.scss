@@ -34,7 +34,7 @@
   margin: 0 auto;
   z-index: 1;
   transform-style: preserve-3d;
-  animation: fadeIn 3s forwards;
+  animation: fadeIn 1s forwards;
   // animation: fadeIn 1s 1.7s forwards;
   animation-delay: 1s;
 }
@@ -83,14 +83,13 @@
         opacity: 0.6;
       }
     }
-p{
-  font-style: 13px;
-  color: #fff;
-font-family: serif;
-font-weight: 300;
-min-width: fit-content;
-animation: pulse 1s ;
-
-}
+    p {
+      font-style: 13px;
+      color: #fff;
+      font-family: serif;
+      font-weight: 300;
+      min-width: fit-content;
+      animation: pulse 1s;
+    }
   }
 }
