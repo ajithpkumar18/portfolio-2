@@ -3,6 +3,7 @@ import AnimatedLetters from '../AnimatedLetters'
 import Loader from 'react-loaders'
 import './index.scss'
 import emailjs from '@emailjs/browser'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -17,15 +18,22 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault()
 
-    emailjs.sendForm('gmail', 'templateid', refForm.current, 'token').then(
-      () => {
-        alert('Message successfully send!')
-        window.location.reload(false)
-      },
-      () => {
-        alert('Failed to send the message, please try again')
-      }
-    )
+    emailjs
+      .sendForm(
+        'service_7yn705f',
+        'template_a7nfl89',
+        refForm.current,
+        'y-ZgJ1-uFSEK3brAW'
+      )
+      .then(
+        () => {
+          alert('Message successfully sent!')
+          window.location.reload(false)
+        },
+        () => {
+          alert('Failed to send the message, please try again')
+        }
+      )
   }
 
   return (
@@ -75,6 +83,25 @@ const Contact = () => {
               </ul>
             </form>
           </div>
+        </div>
+        <div className="info-map">
+          Sanju ,
+          <br />
+          India,
+          <br />
+          222 Barakhamba Road, 110046
+          <br />
+          Maharashtra
+          <br />
+          <span>joshibhaiiiiiii@gmail.com</span>
+        </div>
+        <div className="map-wrap">
+          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={[44.96366, 19.61045]}>
+              <Popup>Sanju lives here, come over for a cup of coffee</Popup>
+            </Marker>
+          </MapContainer>
         </div>
       </div>
       <Loader type="pacman" />
